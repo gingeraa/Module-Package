@@ -12,7 +12,7 @@ app_server <- function(input, output, session) {
                           covariates = c(WT = "bwt",  SEX = "sex"),
                           runOnStart = FALSE
   )  # callModule
-  
+
   # Call plot module
   plotOutput <- callModule(mod_plot_server, id = "plot1", simOutput = simOutput, 
                            CTfeatures1 = c(linecolor = "black", fill = "grey40", conctimexaxis = "Time After Dose (hours)", "Concentration (ng/mL)"), CTfeatures2 =c(0.05,0.95), #(CI low boundary,CI high boundary)
@@ -20,6 +20,6 @@ app_server <- function(input, output, session) {
                                              KAylab = "Count", KAFill = "darkblue", CLtitle = "Clearance  (L/hr)", CLxlab= "Clearance  (L/hr)", CLylab = "Count",
                                              CLFill = "darkblue"), 
                            histfeatures2 = c(50,50,50)  #yaxis upper limit for V, KA, and Cl
-  )  # callModule
+                           )  # callModule
   
 }  # app_server
